@@ -227,10 +227,9 @@ POLY_API_KEY = first_env("POLY_API_KEY", "CLOB_API_KEY")
 
 if not poly_private_key():
     print(
-        f"  [Env] POLY_PRIVATE_KEY still empty — loaded .env from:\n"
-        f"        {_ENV_PATH}\n"
-        f"        exists={os.path.isfile(_ENV_PATH)} | SCRIPT_DIR={SCRIPT_DIR}\n"
-        f"        Tip: remove POLY_PRIVATE_KEY from Windows Environment Variables if set."
+        "  [Env] POLY_PRIVATE_KEY still empty.\n"
+        "        Tip: check your .env file exists next to the script and contains POLY_PRIVATE_KEY.\n"
+        "        Also remove POLY_PRIVATE_KEY from Windows Environment Variables if set."
     )
 # ════════════════════════════════════════════════
 
@@ -1398,8 +1397,7 @@ def check_env():
     if not pk:
         print("  ❌ POLY_PRIVATE_KEY missing"); ok = False
     else:
-        key_preview = f"{pk[:6]}...{pk[-4:]}" if len(pk) > 12 else "***"
-        print(f"  ✅ POLY_PRIVATE_KEY loaded ({key_preview})")
+        print("  ✅ POLY_PRIVATE_KEY loaded")
     if not fd:
         print("  ❌ POLY_FUNDER missing"); ok = False
     else:
